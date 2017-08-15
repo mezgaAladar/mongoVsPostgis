@@ -1,0 +1,33 @@
+
+extends layout
+
+block content
+    h1= title
+    p Calculate with linear reference system
+
+    // Wrapper
+    #wrapper
+    div
+      form(action='/submitLRS',method='post')
+          // USER INFO
+          #userInfo
+              h2 River Info
+              p
+                strong Name:
+                |  <span id='riverName'>#{river}</span>
+                br
+                strong Coordinates:
+                |  <span id='riverCoord'></span>
+                br
+
+
+                br
+                each item,i in coordinates
+                  <span>#{item}</span>
+                  input(id=i,type='text', placeholder='#{meretek[i]}', name=i)
+                  br
+                input(id=river,type='hidden',name=river)
+          // /USER INFO
+
+    // /WRAPPER
+
